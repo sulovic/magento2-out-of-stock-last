@@ -1,0 +1,20 @@
+{
+  "name": "shoppy/out-of-stock-last",
+  "description": "Magento 2 module to move out-of-stock products to the end of search results",
+  "type": "magento2-module",
+  "author": "Vladimir Sulovic",
+  "version": "1.0.0",
+  "license": "MIT",
+  "require": {
+    "php": "^8.1",
+    "magento/framework": "^103.0"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Shoppy\\OutOfStockLast\\": ""
+    }
+  }
+}
