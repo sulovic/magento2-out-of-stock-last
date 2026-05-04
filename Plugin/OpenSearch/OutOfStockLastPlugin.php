@@ -29,22 +29,16 @@ class OutOfStockLastPlugin
                     [
                         "filter" => [
                             "term" => [
-                                "stock.is_salable" => true,
+                                "is_out_of_stock" => 0,
                             ],
                         ],
-                        "weight" => 100,
+                        "weight" => 5,
                     ],
                 ],
                 "score_mode" => "sum",
                 "boost_mode" => "multiply",
             ],
         ];
-
-        // Modify sort to prioritize in-stock products
-        if (!isset($result["body"]["sort"])) {
-            $result["body"]["sort"] = [];
-        }
-        array_unshift($result["body"]["sort"], ["stock.is_salable" => "desc"]);
 
         return $result;
     }
