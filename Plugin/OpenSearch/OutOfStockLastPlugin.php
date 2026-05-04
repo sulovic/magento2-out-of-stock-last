@@ -8,7 +8,7 @@ namespace Shoppy\OutOfStockLast\Plugin\OpenSearch;
 class OutOfStockLastPlugin
 {
     /**
-     * After build query, wrap it in function_score to boost in-stock products
+     * After build query, wrap it in function_score to boost in-stock products and modify sort
      *
      * @param \Magento\OpenSearch\SearchAdapter\Query\Builder $subject
      * @param array $result
@@ -39,6 +39,12 @@ class OutOfStockLastPlugin
                 "boost_mode" => "multiply",
             ],
         ];
+
+        // Modify sort to prioritize in-stock products
+        if (!isset($result["body"]["sort"])) {
+            $result["body"]["sort"] = [];
+        }
+        array_unshift($result["body"]["sort"], ["stock.is_salable" => "desc"]);
 
         return $result;
     }

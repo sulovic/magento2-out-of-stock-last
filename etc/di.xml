@@ -7,4 +7,9 @@
                 type="Shoppy\OutOfStockLast\Plugin\OpenSearch\OutOfStockLastPlugin"/>
     </type>
 
+    <type name="Magento\Catalog\Model\Layer">
+        <plugin name="out_of_stock_last_layer"
+                type="Shoppy\OutOfStockLast\Plugin\LayerPlugin"/>
+    </type>
+
 </config>
