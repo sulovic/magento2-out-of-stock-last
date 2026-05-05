@@ -7,4 +7,9 @@
                 type="Shoppy\OutOfStockLast\Plugin\OpenSearch\OutOfStockLastPlugin"/>
     </type>
 
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Collection">
+        <plugin name="out_of_stock_last_category_collection"
+                type="Shoppy\OutOfStockLast\Plugin\Collection\CategoryProductCollectionPlugin"/>
+    </type>
+
 </config>
